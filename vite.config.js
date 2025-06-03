@@ -24,6 +24,7 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: "docs",
     rollupOptions: {
       output: {
         // Génération de noms de fichiers avec hash pour le cache-busting

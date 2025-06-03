@@ -40,10 +40,16 @@ jobs:
         with:
           enablement: true
 
+      - name: Create docs directory
+        run: mkdir -p docs
+
+      - name: Copy build to docs
+        run: cp -r dist/* docs/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: "./docs"
 
   deploy:
     environment:

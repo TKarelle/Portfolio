@@ -4,6 +4,7 @@ import compression from "vite-plugin-compression";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/Portfolio/", // Ajout de la base pour GitHub Pages
   plugins: [
     react(),
     compression({

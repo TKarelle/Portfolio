@@ -4,7 +4,7 @@ import compression from "vite-plugin-compression";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/", // Changement du chemin de base pour GitHub Pages
+  base: "/Portfolio/", // Retour à la configuration avec le nom du repo
   plugins: [
     react(),
     compression({

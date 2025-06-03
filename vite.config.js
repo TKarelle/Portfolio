@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import compression from "vite-plugin-compression";
+import { resolve } from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -17,6 +18,11 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
+  },
   server: {
     headers: {
       // Cache pour les ressources statiques
@@ -25,6 +31,9 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+      },
       output: {
         // Génération de noms de fichiers avec hash pour le cache-busting
         entryFileNames: "assets/[name].[hash].js",

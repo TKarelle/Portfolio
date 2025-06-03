@@ -7,7 +7,15 @@ import { resolve } from "path";
 export default defineConfig({
   base: "/Portfolio/", // Retour à la configuration avec le nom du repo
   plugins: [
-    react(),
+    react({
+      jsxRuntime: "automatic",
+      jsxImportSource: "react",
+      babel: {
+        plugins: [
+          ["@babel/plugin-transform-react-jsx", { runtime: "automatic" }],
+        ],
+      },
+    }),
     compression({
       algorithm: "gzip",
       ext: ".gz",
@@ -22,6 +30,7 @@ export default defineConfig({
     alias: {
       "@": resolve(__dirname, "src"),
     },
+    extensions: [".js", ".jsx", ".json"],
   },
   server: {
     headers: {

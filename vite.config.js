@@ -4,7 +4,7 @@ import compression from "vite-plugin-compression";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/Portfolio/", // Ajout de la base pour GitHub Pages
+  base: "/", // Changement du chemin de base pour GitHub Pages
   plugins: [
     react(),
     compression({
@@ -24,7 +24,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "docs",
     rollupOptions: {
       output: {
         // Génération de noms de fichiers avec hash pour le cache-busting

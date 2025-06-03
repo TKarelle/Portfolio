@@ -5,7 +5,7 @@ import { resolve } from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/Portfolio/", // Retour à la configuration avec le nom du repo
+  base: "/Portfolio/",
   plugins: [
     react({
       jsxRuntime: "automatic",
@@ -20,9 +20,9 @@ export default defineConfig({
       algorithm: "gzip",
       ext: ".gz",
       deleteOriginFile: false,
-      threshold: 10240, // Seuil de compression en octets
+      threshold: 10240,
       compressionOptions: {
-        level: 9, // Niveau de compression maximum
+        level: 9,
       },
     }),
   ],
@@ -34,7 +34,6 @@ export default defineConfig({
   },
   server: {
     headers: {
-      // Cache pour les ressources statiques
       "Cache-Control": "public, max-age=31536000, immutable",
     },
   },
@@ -44,7 +43,6 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
       },
       output: {
-        // Génération de noms de fichiers avec hash pour le cache-busting
         entryFileNames: "assets/[name].[hash].js",
         chunkFileNames: "assets/[name].[hash].js",
         assetFileNames: (assetInfo) => {
@@ -60,8 +58,7 @@ export default defineConfig({
         },
       },
     },
-    // Configuration du cache pour la production
-    assetsInlineLimit: 4096, // Inline les assets < 4kb
+    assetsInlineLimit: 4096,
     cssCodeSplit: true,
     sourcemap: false,
     minify: "terser",
@@ -72,4 +69,5 @@ export default defineConfig({
       },
     },
   },
+  publicDir: "public",
 });

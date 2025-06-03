@@ -47,7 +47,17 @@ export default defineConfig({
         // Génération de noms de fichiers avec hash pour le cache-busting
         entryFileNames: "assets/[name].[hash].js",
         chunkFileNames: "assets/[name].[hash].js",
-        assetFileNames: "assets/[name].[hash].[ext]",
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split(".");
+          const ext = info[info.length - 1];
+          if (/\.(png|jpe?g|gif|svg|webp)$/.test(assetInfo.name)) {
+            return `assets/images/[name].[hash].[ext]`;
+          }
+          if (/\.(woff2?|eot|ttf|otf)$/.test(assetInfo.name)) {
+            return `assets/fonts/[name].[hash].[ext]`;
+          }
+          return `assets/[name].[hash].[ext]`;
+        },
       },
     },
     // Configuration du cache pour la production

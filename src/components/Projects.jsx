@@ -70,7 +70,7 @@ function Projects() {
 
         <div className="text-center mt-8">
           <a
-            href="https://github.com/votre-username"
+            href="https://github.com/TKarelle"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-white text-rose-600 px-4 py-2 rounded-lg hover:shadow-lg transition-shadow"
